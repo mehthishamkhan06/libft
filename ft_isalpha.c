@@ -1,21 +1,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int ft_isalpha(char *str)
+int ft_isalpha(int c)
 {
-    int i;
-    i = 0;
-    while(str[i])
-    {
-        if (!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')))
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-int main(void)
-{
-    printf("%i", ft_isalpha("Hxkskoo"));
+    if ((c > 64 && c < 91) || (c > 96 && c < 123))
+        return (1);
     return (0);
 }

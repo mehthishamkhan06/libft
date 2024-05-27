@@ -1,9 +1,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int ft_isdigit(int c)
+int ft_isascii(int c)
 {
-	if (c > 47 && c < 58)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
