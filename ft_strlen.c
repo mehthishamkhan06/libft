@@ -1,9 +1,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int ft_strlen(char *str)
+size_t ft_strlen(const char *str)
 {
-    int i;
+    size_t i;
 
     i = 0;
     while(str[i])
@@ -15,5 +15,5 @@ int ft_strlen(char *str)
 
 int main(void)
 {
-    printf("%i", ft_strlen("HELLO"));
+    printf("%li", ft_strlen("HELLO"));
 }

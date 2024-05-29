@@ -12,4 +12,6 @@ char	*ft_strtrim(char const *s)
 	{
 		i++;
 	}
+	s[i] = '\0';
+	return (s);
 }
