@@ -1,7 +1,6 @@
 #include "libft.h"
 
-
-char *ft_strdup(char *src)
+char *ft_strdup(const char *src)
 {
     int i;
     i = 0;
@@ -21,7 +20,10 @@ char *ft_strdup(char *src)
 	return (res);
 }
 
-int main(void)
-{
-	printf("%s", ft_strdup("HELLO"));
-}
+// int main(void)
+// {
+// 	printf("%s", ft_strdup("HELLO"));
+//     int a = ft_strlen("HELLO");
+// 	printf("%i", a);
+    
+// }
