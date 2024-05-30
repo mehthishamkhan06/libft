@@ -1,6 +1,5 @@
-#include <unistd.h> write(1, "lvhdflv\n", )
-#include <stdio.h> printf("kjvhsfh")
-#include <libft.h>
+#include "libft.h"
+
 
 
 int ft_isprint(int c)
