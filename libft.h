@@ -2,6 +2,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <stddef.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdint.h>
