@@ -1,16 +1,27 @@
 #include "libft.h"
 
-
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*res;
+	char	*str;
+	int		len;
 	int		i;
+	int		count;
 
 	i = 0;
-	while(s[i] && s[i] >= 9 && s[i] <= 13 || s[i] == 32)
+	count = 0;
+	if (s1 == '\0' || set == '\0')
+		return (NULL);
+	while (s1[i] && ft_strchr(set, s1[i]))
 	{
+		count++;
 		i++;
 	}
-	s[i] = '\0';
-	return (s);
+	if (s1[i] == '\0')
+		return (ft_strdup(""));
+	len = ft_strlen(s1);
+	while(ft_strchr(set, s1[len]))
+		len--;
+	str = (char *)ft_substr(s1, 0, len + 1);
+	s1 -= count;
+	return (str);
 }
