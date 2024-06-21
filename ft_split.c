@@ -1,127 +1,107 @@
-// #include "libft.h"
+#include "libft.h"
 
-// int ft_isspace(char c)
+// static int	count(char const *s, char c)
 // {
-//     return (c == ' ' || c == '\n' || c == '\t');
+// 	int	i;
+// 	int	l;
+
+// 	i = 0;
+// 	l = 0;
+// 	while (s[i])
+// 	{
+// 		if (i == 0 && s[i] != c)
+// 			l++;
+// 		if (s[i] == c && s[i + 1] != c && s[i + 1])
+// 			l++;
+// 		i++;
+// 	}
+// 	return (l);
 // }
+static	int w_count(const char *str, char c)
+{
+	int i;
+	int not_seen;
+	int count;
 
-// int count_words(char *str)
-// {
-//     int count = 0;
-//     int in_word = 0; // Flag to track if currently in a word
+	count = 0;
+	not_seen = 1;
+	i = 0;
+	while(str[i])
+	{
+		if (str[i] != c)
+		{
+			if (not_seen == 1)
+			{
+				not_seen = 0;
+				count++;
+			}
+		}
+		else
+			not_seen = 1;
+		i++;
+	}
+	return (count);
+}
 
-//     while (*str)
-//     {
-//         if (!ft_isspace(*str))
-//         {
-//             if (!in_word)
-//             {
-//                 count++;
-//                 in_word = 1;
-//             }
-//         }
-//         else
-//         {
-//             in_word = 0;
-//         }
-//         str++;
-//     }
-//     return count;
-// }
+char	**splitter(char const *s, char c, char **str, int *i)
+{
+    int word_length = 0;
+    int count_since_start = 0;
+    int total_word_count = i[4];
 
-// char *malloc_word(char *str)
-// {
-//     int len = 0;
-//     while (*str && !ft_isspace(*str))
-//     {
-//         len++;
-//         str++;
-//     }
+	while (i[0] < total_word_count)
+	{
+		word_length = 0;
+		while (s[count_since_start] == c && s[count_since_start])
+			count_since_start++;
+		while (s[count_since_start] != c && s[count_since_start])
+		{
+			word_length++;
+			count_since_start++;
+		}
+		str[i[0]] = (char *)malloc(sizeof(char) * (word_length + 1));
+		count_since_start -= word_length;
+		int inside_string_count = 0;
+		while (s[count_since_start] != c && s[count_since_start])
+		{
+			str[i[0]][inside_string_count] = s[count_since_start];
+			inside_string_count++;
+			count_since_start++;
+		}
+		str[i[0]++][inside_string_count] = '\0';
+	}
+	str[i[0]] = 0;
+	return (str);
+}
 
-//     char *word = (char *)malloc(sizeof(char) * (len + 1));
-//     if (word == NULL)
-//         return NULL;
+char	**ft_split(char const *s, char c)
+{
+	char	**str;
+	int		i[5];
+	int		j;
 
-//     // Reset str pointer to the start of the word
-//     str -= len;
-//     int i = 0;
-//     while (*str && !ft_isspace(*str))
-//     {
-//         word[i++] = *str++;
-//     }
-//     word[i] = '\0';
-//     return word;
-// }
+	j = 0;
+	while (j < 5)
+		i[j++] = 0;
+	if (!s)
+		return (NULL);
+	i[4] = w_count(s, c);
+	str = (char **) malloc(sizeof(*str) * (i[4] + 1));
+	if (!str)
+		return (NULL);
+	return (splitter(s, c, str, i));
+}
 
-// char **ft_split(char *str, char c)
-// {
-//     // Allocate memory for array of pointers
-//     int word_count = count_words(str);
-//     char **arr = (char **)malloc(sizeof(char *) * (word_count + 1));
-//     if (arr == NULL)
-//         return NULL;
-
-//     int i = 0;
-//     while (*str)
-//     {
-//         // Skip leading whitespace
-//         while (*str && ft_isspace(*str))
-//             str++;
-
-//         // Allocate memory for each word
-//         if (*str && !ft_isspace(*str))
-//         {
-//             arr[i] = malloc_word(str);
-//             if (arr[i] == NULL)
-//             {
-//                 // Free previously allocated memory and return NULL
-//                 while (i >= 0)
-//                     free(arr[i--]);
-//                 free(arr);
-//                 return NULL;
-//             }
-//             i++;
-
-//             // Move str pointer to the end of the current word
-//             while (*str && !ft_isspace(*str))
-//                 str++;
-//         }
-//     }
-//     // Set the last element of arr to NULL as per the requirement
-//     arr[i] = NULL;
-//     return arr;
-// }
-
-// #include <stdio.h>
-// #include <stdlib.h>
-
-// // Function prototypes
-// int ft_isspace(char c);
-// int count_words(char *str);
-// char *malloc_word(char *str);
-// char **ft_split(char *str, char c);
-
-// int main() {
-//     char *phrase = "   Hello,   Flavio\t Wuensche!  ";
-//     char **arr = ft_split(phrase, ' ');
-
-//     if (arr != NULL) {
-//         // Print the array of strings
-//         for (int i = 0; arr[i] != NULL; i++) {
-//             printf("%s\n", arr[i]);
-//         }
-
-//         // Free memory allocated for the array of strings
-//         for (int i = 0; arr[i] != NULL; i++) {
-//             free(arr[i]);
-//         }
-//         free(arr);
-//     } else {
-//         printf("Memory allocation failed.\n");
-//     }
-
-//     return 0;
-// }
-
- 
-
+int		main(void)
+{
+	int i = 0;
+	char **tab;
+		
+	tab = ft_split("--bonjour--je--m'appel--Arthur---", '-');
+	while (i < 4)
+	{
+		printf("string %d : %s\n", i, tab[i]);
+		i++;
+	}
+	return (0);
+}
