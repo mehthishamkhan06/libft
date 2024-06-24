@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/24 13:20:31 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/06/24 13:20:36 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 // static int	count(char const *s, char c)
@@ -17,16 +29,16 @@
 // 	}
 // 	return (l);
 // }
-static	int w_count(const char *str, char c)
+static int	w_count(const char *str, char c)
 {
-	int i;
-	int not_seen;
-	int count;
+	int	i;
+	int	not_seen;
+	int	count;
 
 	count = 0;
 	not_seen = 1;
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] != c)
 		{
@@ -45,10 +57,14 @@ static	int w_count(const char *str, char c)
 
 char	**splitter(char const *s, char c, char **str, int *i)
 {
-    int word_length = 0;
-    int count_since_start = 0;
-    int total_word_count = i[4];
+	int	word_length;
+	int	count_since_start;
+	int	total_word_count;
+	int	inside_string_count;
 
+	word_length = 0;
+	count_since_start = 0;
+	total_word_count = i[4];
 	while (i[0] < total_word_count)
 	{
 		word_length = 0;
@@ -61,7 +77,7 @@ char	**splitter(char const *s, char c, char **str, int *i)
 		}
 		str[i[0]] = (char *)malloc(sizeof(char) * (word_length + 1));
 		count_since_start -= word_length;
-		int inside_string_count = 0;
+		inside_string_count = 0;
 		while (s[count_since_start] != c && s[count_since_start])
 		{
 			str[i[0]][inside_string_count] = s[count_since_start];

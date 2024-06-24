@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/24 13:17:48 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/06/24 13:17:53 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t  i;
-	unsigned char *a;
-	unsigned char *b;
+	size_t			i;
+	unsigned char	*a;
+	unsigned char	*b;
 
 	i = 0;
 	a = (unsigned char *)s1;
@@ -31,8 +43,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 //     int result1 = ft_memcmp(str1, str3, sizeof(str1));
 //     int result2 = memcmp(str1, str3, sizeof(str1));
 
-//     printf("Comparison result1: %d\n", result1); // Output: 0 (strings are equal)
-//     printf("Comparison result2: %d\n", result2); // Output: non-zero (strings are different)
+//     printf("Comparison result1: %d\n", result1);
+// Output: 0 (strings are equal)
+//     printf("Comparison result2: %d\n", result2); 
+// Output: non-zero (strings are different)
 
 //     return 0;
 // }

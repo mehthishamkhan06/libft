@@ -1,24 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/24 13:24:54 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/06/24 13:24:56 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	ft_strnstr(char *str, char *to_find, unsigned int n)
+char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
 	unsigned int	i;
 	unsigned int	j;
+	char			*a;
+	char			*b;
 
 	i = 0;
-	if (to_find[0] == '\0')
-	{
-		return (str);
-	}
-	while (str[i] != '\0' && i < n)
+	a = (char *)str;
+	b = (char *)to_find;
+	if (b[0] == '\0')
+		return (a);
+	while (a[i] && i < n)
 	{
 		j = 0;
-		while (str[i + j] == to_find[j])
+		while (a[i + j] == b[j])
 		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (str + i);
-			}
+			if (b[j + 1] == '\0')
+				return (a + i);
 			j++;
 		}
 		i++;

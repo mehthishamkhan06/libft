@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/24 13:19:50 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/06/24 13:19:53 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	putnbr(int nb, int fd)
 {
-	char a;
+	char	a;
 
 	if (nb >= 10)
 	{
@@ -23,7 +35,7 @@ void	ft_putnbr(int nb, int fd)
 	{
 		write(fd, "-2147483648", 11);
 	}
-	else if(nb < 0)
+	else if (nb < 0)
 	{
 		write(fd, "-", 1);
 		putnbr(-1 * nb, fd);

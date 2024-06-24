@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/24 12:22:56 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/06/24 12:23:01 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static	int digit_count(int nb)
+static	int	digit_count(int nb)
 {
-	int digit;
+	int	digit;
 
 	if (nb == 0)
 		return (1);
 	digit = 0;
-	while(nb != 0)
+	while (nb != 0)
 	{
 		nb /= 10;
 		digit++;
@@ -17,17 +29,22 @@ static	int digit_count(int nb)
 
 char	*ft_itoa(int n)
 {
-	int		d_cnt;
-	char	*result;
-	unsigned int nbr;
-	char	*a;
+	int					d_cnt;
+	char				*result;
+	unsigned int		nbr;
+	char				*a;
 
+	a = NULL;
 	if (n == 0)
+	{
 		a = ft_strdup("0");
 		return (a);
+	}
 	if (n == -2147483648)
+	{
 		a = ft_strdup("-2147483648");
 		return (a);
+	}
 	d_cnt = digit_count(n);
 	if (n < 0)
 		d_cnt++;
@@ -42,7 +59,7 @@ char	*ft_itoa(int n)
 	}
 	else
 		nbr = n;
-	while(nbr)
+	while (nbr)
 	{
 		result[d_cnt - 1] = nbr % 10 + '0';
 		nbr /= 10;
@@ -53,6 +70,8 @@ char	*ft_itoa(int n)
 
 // int main ()
 // {
-// 	printf("%s\n", ft_itoa(0));
+// 	printf("%s\n", ft_itoa(5322));
+// 	printf("%s\n", ft_itoa(5322));
+
 // 	return(0);
 // }
