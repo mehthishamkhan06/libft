@@ -14,26 +14,24 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*str;
 
+	str = (char *)s;
 	i = 0;
-	while (s[i] && c != s[i])
+	if ((char)c == '\0')
+		return (str + ft_strlen(s));
+	while (s[i] && (char)c != s[i])
 		i++;
-	if (c == s[i])
-		return ((char *)&s[i]);
+	if ((char)c == s[i])
+		return (str + i);
 	return (NULL);
 }
 
-// int main() {
-//     const char *str = "Hello, World!";
-//     char ch = 'l';
-//     char *result = ft_strchr(str, ch);
-
-//     if (result != NULL) {
-//         printf("Character '%c' found at position: %ld\n", ch, result - str);
-//     } else {
-//         printf("Character '%c' not found.\n", ch);
-//     }
-
-//     return 0;
-// }
+int main()
+{
+	char *a = "Hwllohowaeyou";
+	char c = 'o';
+	char *res = ft_strchr(a, c);
+	printf("%s\n", res);
+}

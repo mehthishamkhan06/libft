@@ -17,23 +17,49 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	int		len;
 	int		i;
-	int		count;
 
 	i = 0;
-	count = 0;
-	if (s1 == NULL || set == NULL)
+	if (!s1 || !set)
 		return (NULL);
-	while (s1[i] && ft_strchr(set, s1[i]))
+	if (*s1 == '\0')
+		return (ft_strdup(""));
+	while (*s1 && ft_strchr(set, *s1))
 	{
-		count++;
+		s1++;
 		i++;
 	}
-	if (s1[i] == '\0')
+	if (*s1 == '\0')
 		return (ft_strdup(""));
 	len = ft_strlen(s1);
 	while (ft_strchr(set, s1[len]))
 		len--;
 	str = (char *)ft_substr(s1, 0, len + 1);
-	s1 -= count;
+	s1 -= i;
 	return (str);
 }
+
+// #include "libft.h"
+
+// char	*ft_strtrim(char const *s1, const char *set)
+// {
+// 	char	*str;
+// 	int		strlen;
+// 	int		i;
+
+// 	i = 0;
+// 	if (!s1 || !set)
+// 		return (NULL);
+// 	while (*s1 && ft_strchr(set, *s1))
+// 	{
+// 		s1++;
+// 		i++;
+// 	}
+// 	if (*s1 == '\0')
+// 		return (ft_strdup(""));
+// 	strlen = ft_strlen(s1);
+// 	while (ft_strchr(set, s1[strlen]))
+// 		strlen--;
+// 	str = (char *)ft_substr(s1, 0, strlen + 1);
+// 	s1 -= i;
+// 	return (str);
+// }

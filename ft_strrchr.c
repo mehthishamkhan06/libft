@@ -14,33 +14,26 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
+	char *temp;
 	int	i;
 
+	temp = (char *)s;
 	i = ft_strlen(s);
+	if (c == '\0')
+		return (temp + i);
 	while (i >= 0)
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
+		if (s[i] == (char)c)
+			return (temp + i);
 		i--;
 	}
 	return (NULL);
 }
 
-// #include <stdio.h>
-// #include <string.h> 
-// For strlen, which your implementation uses
-
-// int main() {
-//     const char *str = "Hello, Worldo!";
-//     char ch = 'o';
-//     char *result = ft_strrchr(str, ch);
-
-//     if (result != NULL) {
-//         printf("Last occurrence of character '%c'
-// found at position: %ld\n", ch, result - str);
-//     } else {
-//         printf("Character '%c' not found.\n", ch);
-//     }
-
-//     return 0;
-// }
+int main()
+{
+	char *a = "Hwllohowaeyou";
+	char c = 'o';
+	char *res = ft_strrchr(a, c);
+	printf("%s\n", res);
+}

@@ -31,20 +31,12 @@ char	*ft_itoa(int n)
 {
 	int					d_cnt;
 	char				*result;
-	unsigned int		nbr;
-	char				*a;
+	long int			nbr;
 
-	a = NULL;
 	if (n == 0)
-	{
-		a = ft_strdup("0");
-		return (a);
-	}
+		return (ft_strdup("0"));
 	if (n == -2147483648)
-	{
-		a = ft_strdup("-2147483648");
-		return (a);
-	}
+		return (ft_strdup("-2147483648"));
 	d_cnt = digit_count(n);
 	if (n < 0)
 		d_cnt++;
