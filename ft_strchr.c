@@ -28,10 +28,10 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-int main()
-{
-	char *a = "Hwllohowaeyou";
-	char c = 'o';
-	char *res = ft_strchr(a, c);
-	printf("%s\n", res);
-}
+// int main()
+// {
+// 	char *a = "Hwllohowaeyou";
+// 	char c = 'o';
+// 	char *res = ft_strchr(a, c);
+// 	printf("%s\n", res);
+// }

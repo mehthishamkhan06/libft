@@ -108,16 +108,15 @@ char	**ft_split(char const *s, char c)
 	return (splitter(s, c, str, i));
 }
 
-int		main(void)
-{
-	int i = 0;
-	char **tab;
-		
-	tab = ft_split("--bonjour--je--m'appel--Arthur---", '-');
-	while (i < 4)
-	{
-		printf("string %d : %s\n", i, tab[i]);
-		i++;
-	}
-	return (0);
-}
+// int		main(void)
+// {
+// 	int i = 0;
+// 	char **tab;		
+// 	tab = ft_split("--bonjour--je--m'appel--Arthur---", '-');
+// 	while (i < 4)
+// 	{
+// 		printf("string %d : %s\n", i, tab[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }

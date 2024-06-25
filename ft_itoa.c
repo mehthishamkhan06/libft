@@ -59,11 +59,11 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-int main ()
-{
-	printf("%s\n", ft_itoa(5322));
-	printf("%s\n", ft_itoa(5322));
-	printf("%s\n", ft_itoa(0));
+// int main ()
+// {
+// 	printf("%s\n", ft_itoa(5322));
+// 	printf("%s\n", ft_itoa(5322));
+// 	printf("%s\n", ft_itoa(0));
 
-	return(0);
-}
+// 	return(0);
+// }

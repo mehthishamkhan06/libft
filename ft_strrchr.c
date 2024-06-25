@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *temp;
-	int	i;
+	char 	*temp;
+	int		i;
 
 	temp = (char *)s;
 	i = ft_strlen(s);
@@ -30,10 +30,10 @@ char	*ft_strrchr(const char *s, int c)
 	return (NULL);
 }
 
-int main()
-{
-	char *a = "Hwllohowaeyou";
-	char c = 'o';
-	char *res = ft_strrchr(a, c);
-	printf("%s\n", res);
-}
+// int main()
+// {
+// 	char *a = "Hwllohowaeyou";
+// 	char c = 'o';
+// 	char *res = ft_strrchr(a, c);
+// 	printf("%s\n", res);
+// }
