@@ -58,6 +58,7 @@ char	*ft_itoa(int n)
 		d_cnt--;
 	}
 	return (result);
+// function more than 25 lines.
 }
 
 // int main ()
