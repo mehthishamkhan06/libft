@@ -26,10 +26,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = ft_strlen(s) - start;
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
-	res = (char *)malloc(sizeof(char) * (len + 1));
+	size_t newlen = (((ft_strlen(s) - start) < len) ? (ft_strlen(s) - start) : len);
+	res = (char *)malloc(sizeof(char) * (newlen + 1));
+	// res = (char *)malloc(sizeof(char) * (len + 1));
 	if (res == NULL)
 		return (NULL);
-	while (i < len && s[i])
+	while (i < newlen && s[i])
 	{
 		res[i] = s[start];
 		i++;

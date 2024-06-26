@@ -18,16 +18,42 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new;
 
 	temp = NULL;
+	if (!lst || !f || !del)
+		return (NULL);
 	while (lst)
 	{
-		new = ft_lstnew(f(lst->content));
+		new = malloc(sizeof(t_list));
 		if (!new)
 		{
 			ft_lstclear(&temp, del);
 			return (NULL);
 		}
+		new -> content = f(lst -> content);
+		new -> next = NULL;
 		ft_lstadd_back(&temp, new);
 		lst = lst->next;
 	}
 	return (temp);
 }
+
+// t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+// {
+// 	t_list	*temp;
+// 	t_list	*new;
+
+// 	temp = NULL;
+// 	if (!lst || !f || !del)
+// 		return (NULL);
+// 	while (lst)
+// 	{
+// 		new = ft_lstnew(f(lst->content));
+// 		if (!new)
+// 		{
+// 			ft_lstclear(&temp, del);
+// 			return (NULL);
+// 		}
+// 		ft_lstadd_back(&temp, new);
+// 		lst = lst->next;
+// 	}
+// 	return (temp);
+// }
