@@ -12,12 +12,11 @@
 
 #include "libft.h"
 #include <string.h>
-#include <limits.h>
 
 int	ft_atoi(const char *str)
 {
-	int	answer;
-	int	sign;
+	long long int	answer;
+	int				sign;
 
 	answer = 0;
 	sign = 1;
@@ -33,16 +32,19 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		answer *= 10;
-		answer += *str - 48;
-		while (answer >=  )
+		answer = (answer * 10) + *str - 48;
+		if (answer >= LLONG_MAX && sign == -1)
+			return (0);
+		if (answer >= LLONG_MAX)
+			return (-1);
 		str++;
 	}
-	return (sign * answer)
+	return (sign * answer);
 }
 
-int main(void)
-{
-	printf("%i\n", ft_atoi("645826548725"));
-	printf("%i\n", atoi("+0"));
-}
+// int main(void)
+// {
+// 	printf("%i\n", ft_atoi("    --+7531234256"));
+// 	printf("%i\n", atoi("       --+7531234256"));
+// 	// printf("%i\n", atoi(NULL));
+// }
