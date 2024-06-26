@@ -59,13 +59,11 @@ char	**splitter(char const *s, char c, char **str, int *i)
 {
 	int	word_length;
 	int	count_since_start;
-	int	total_word_count;
 	int	inside_string_count;
 
 	word_length = 0;
 	count_since_start = 0;
-	total_word_count = i[4];
-	while (i[0] < total_word_count)
+	while (i[0] < i[4])
 	{
 		word_length = 0;
 		while (s[count_since_start] == c && s[count_since_start])
@@ -79,11 +77,7 @@ char	**splitter(char const *s, char c, char **str, int *i)
 		count_since_start -= word_length;
 		inside_string_count = 0;
 		while (s[count_since_start] != c && s[count_since_start])
-		{
-			str[i[0]][inside_string_count] = s[count_since_start];
-			inside_string_count++;
-			count_since_start++;
-		}
+			str[i[0]][inside_string_count++] = s[count_since_start++];
 		str[i[0]++][inside_string_count] = '\0';
 	}
 	str[i[0]] = 0;
