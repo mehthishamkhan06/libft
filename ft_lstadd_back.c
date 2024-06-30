@@ -29,21 +29,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
-// void	ft_lstadd_back(t_list **lst, t_list *new)
-// {
-// 	t_list	*first;
-
-// 	if (lst == NULL)
-// 		return ;
-// 	if (*lst && lst)
-// 	{
-// 		first = *lst;
-// 		while (first->next)
-// 			first = first->next;
-// 		first->next = new;
-// 		return ;
-// 	}
-// 	else
-// 		*lst = new;
-// }
-// my function is the same but 

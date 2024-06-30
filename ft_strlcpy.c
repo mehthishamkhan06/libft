@@ -11,28 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-// size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-// {
-// 	size_t	i;
-// 	size_t	counter;
-
-// 	i = 0;
-// 	counter = 0;
-// 	while (src[counter])
-// 	{
-// 		counter++;
-// 	}
-// 	if (size == 0)
-// 		return (counter);
-// 	while (src[i] && i < (size - 1))
-// 	{
-// 		dest[i] = src[i];
-// 		i++;
-// 	}
-// 	dest[i] = '\0';
-// 	return (counter);
-// }
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
@@ -40,23 +20,45 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 
 	i = 0;
 	counter = 0;
+	while (src[counter])
+		counter++;
 	if (size == 0)
-		return (ft_strlen(src));
+		return (counter);
 	while (src[i] && i < (size - 1))
 	{
 		dest[i] = src[i];
 		i++;
-		counter++;
 	}
-	dest[i] = '\0';
-	// src -= counter;
-	// dest -= counter;
-	return (ft_strlen(src));
+	dest[i++] = '\0';
+	return (counter);
 }
 
-int main()
-{
-	char src[20] = "HEyyLLO";
-	char dest[20] = "JOKhhER";
-	printf("%ld\n", ft_strlcpy(dest, src, 5));
-}
+// size_t	ft_strlcpy1(char *dst, const char *src, size_t dstsize)
+// {
+// 	size_t	count;
+
+// 	count = 0;
+// 	if (!(dstsize))
+// 		return (ft_strlen(src));
+// 	while (*src && dstsize - 1)
+// 	{
+// 		*dst = *src;
+// 		count++;
+// 		dst++;
+// 		src++;
+// 		dstsize--;
+// 	}
+// 	*dst = '\0';
+// 	src = src - count;
+// 	dst = dst - count;
+// 	return (ft_strlen(src));
+// }
+
+// int main()
+// {
+// 	char src[20] = "HELLfSOfhO";
+// 	char dest[20] = "JOingh";
+// 	printf("%ld\n", ft_strlcpy(dest, src, 1));
+// 	printf("%ld\n", ft_strlcpy1(dest, src, 1));
+// 	printf("%ld\n", strlcpy(dest, src, 1));
+// }

@@ -5,30 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 13:20:31 by mohkhan           #+#    #+#             */
-/*   Updated: 2024/06/24 13:20:36 by mohkhan          ###   ########.fr       */
+/*   Created: 2024/06/30 13:12:07 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/06/30 13:12:15 by mohkhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// static int	count(char const *s, char c)
-// {
-// 	int	i;
-// 	int	l;
-
-// 	i = 0;
-// 	l = 0;
-// 	while (s[i])
-// 	{
-// 		if (i == 0 && s[i] != c)
-// 			l++;
-// 		if (s[i] == c && s[i + 1] != c && s[i + 1])
-// 			l++;
-// 		i++;
-// 	}
-// 	return (l);
-// }
 static int	w_count(const char *str, char c)
 {
 	int	i;
@@ -57,35 +40,32 @@ static int	w_count(const char *str, char c)
 
 char	**splitter(char const *s, char c, char **str, int *i)
 {
-	int	word_length;
-	int	count_since_start;
-	int	inside_string_count;
-
-	word_length = 0;
-	count_since_start = 0;
 	while (i[0] < i[4])
 	{
-		word_length = 0;
-		while (s[count_since_start] == c && s[count_since_start])
-			count_since_start++;
-		while (s[count_since_start] != c && s[count_since_start])
+		i[1] = 0;
+		while (s[i[2]] == c && s[i[2]])
+			i[2]++;
+		while (s[i[2]] != c && s[i[2]])
 		{
-			word_length++;
-			count_since_start++;
+			i[1]++;
+			i[2]++;
 		}
-		str[i[0]] = (char *)malloc(sizeof(char) * (word_length + 1));
+		str[i[0]] = (char *)malloc(sizeof(char) * (i[1] + 1));
 		if (!str[i[0]])
-			return (NULL);
-		count_since_start -= word_length;
-		inside_string_count = 0;
-		while (s[count_since_start] != c && s[count_since_start])
-			str[i[0]][inside_string_count++] = s[count_since_start++];
-		str[i[0]++][inside_string_count] = '\0';
+		{
+			while (i[0]-- > 0)
+				free(str[i[0]]);
+			return (free(str), NULL);
+		}
+		i[2] -= i[1];
+		i[3] = 0;
+		while (s[i[2]] != c && s[i[2]])
+			str[i[0]][i[3]++] = s[i[2]++];
+		str[i[0]++][i[3]] = '\0';
 	}
 	str[i[0]] = 0;
 	return (str);
 }
-
 
 char	**ft_split(char const *s, char c)
 {
@@ -99,20 +79,21 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	i[4] = w_count(s, c);
-	str = (char **) malloc(sizeof(*str) * (i[4] + 1));
+	str = (char **)malloc(sizeof(*str) * (i[4] + 1));
 	if (!str)
 		return (NULL);
 	return (splitter(s, c, str, i));
+	free(str);
 }
 
 // int		main(void)
 // {
 // 	int i = 0;
-// 	char **tab;		
-// 	tab = ft_split("--bonjour--je--m'appel--Arthur---", '-');
+// 	char **tab;
+// 	tab = ft_split("--bonjour--tu--t'appel--Yousef---", '-');
 // 	while (i < 4)
 // 	{
-// 		printf("string %d : %s\n", i, tab[i]);
+// 		printf("string {%d} : %s\n", i, tab[i]);
 // 		i++;
 // 	}
 // 	return (0);

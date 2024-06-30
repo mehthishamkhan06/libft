@@ -15,13 +15,11 @@
 
 int	ft_atoi(const char *str)
 {
-	long long int	answer;
-	int				sign;
+	unsigned long long	answer;
+	int					sign;
 
 	answer = 0;
 	sign = 1;
-	if (!str)
-		return (0);
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
 	if (*str == '-' || *str == '+')
@@ -32,7 +30,7 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		answer = (answer * 10) + *str - 48;
+		answer = (answer * 10) + (*str - '0');
 		if (answer >= LLONG_MAX && sign == -1)
 			return (0);
 		if (answer >= LLONG_MAX)
@@ -42,9 +40,9 @@ int	ft_atoi(const char *str)
 	return (sign * answer);
 }
 
-int main(void)
-{
-	// printf("%i\n", ft_atoi(0));
-	// printf("%i\n", atoi(0));
-	// printf("%i\n", atoi(NULL));
-}
+// int main(void)
+// {
+// 	printf("%i\n", ft_atoi((void *)0));
+// 	printf("%i\n", atoi((void *)0));
+// 	// printf("%i\n", atoi(NULL));
+// }

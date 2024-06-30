@@ -12,68 +12,31 @@
 
 #include "libft.h"
 
-// char c
-
-// char	*ft_substr(char const *s, unsigned int start, size_t len)
-// {
-// 	size_t	i;
-// 	char	*res;
-
-// 	i = 0;
-// 	if (!s)
-// 		return (0);
-// 	if (len > ft_strlen(s))
-// 		len = ft_strlen(s) - start;
-// 	if (start >= ft_strlen(s))
-// 		return (ft_strdup(""));
-// 	// size_t newlen = (((ft_strlen(s) - start) < len) ? (ft_strlen(s) - start) : len);
-// 	if (str_len < len)
-//     	newlen = str_len;
-// 	else 
-//     	newlen = len;
-// 	res = (char *)malloc(sizeof(char) * (newlen + 1));
-// 	// res = (char *)malloc(sizeof(char) * (len + 1));
-// 	if (res == NULL)
-// 		return (NULL);
-// 	while (i < newlen && s[i])
-// 	{
-// 		res[i] = s[start];
-// 		i++;
-// 		start++;
-// 	}
-// 	res[i] = '\0';
-// 	return (res);
-// }
-
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    size_t	str_len;
-    size_t	newlen;
-    size_t	i;
-    char    *res;
+	size_t	str_len;
+	size_t	newlen;
+	size_t	i;
+	char	*res;
 
-    i = 0;
+	i = 0;
 	if (!s)
-        return (0);
-    str_len = ft_strlen(s);
-    if (start >= str_len)
-        return (ft_strdup(""));
-    str_len = str_len - start;
-    if (str_len < len)
-        newlen = str_len;
-    else 
-        newlen = len;
-    res = (char *)malloc(sizeof(char) * (newlen + 1));
-    if (res == NULL)
-        return (NULL);
-    while (res[i] < newlen && s[start])
-    {
-        res[i] = s[start];
-        i++;
-        start++;
-    }
-    res[i] = '\0';
-    return (res);
+		return (0);
+	str_len = ft_strlen(s);
+	if (start >= str_len)
+		return (ft_strdup(""));
+	str_len = str_len - start;
+	if (str_len < len)
+		newlen = str_len;
+	else
+		newlen = len;
+	res = (char *)malloc(sizeof(char) * (newlen + 1));
+	if (res == NULL)
+		return (NULL);
+	while (i < newlen && s[start])
+		res[i++] = s[start++];
+	res[i++] = '\0';
+	return (res);
 }
 
 // int main()
