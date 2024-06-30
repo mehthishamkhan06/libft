@@ -42,9 +42,9 @@ int	ft_atoi(const char *str)
 	return (sign * answer);
 }
 
-// int main(void)
-// {
-// 	printf("%i\n", ft_atoi("    --+7531234256"));
-// 	printf("%i\n", atoi("       --+7531234256"));
-// 	// printf("%i\n", atoi(NULL));
-// }
+int main(void)
+{
+	// printf("%i\n", ft_atoi(0));
+	// printf("%i\n", atoi(0));
+	// printf("%i\n", atoi(NULL));
+}

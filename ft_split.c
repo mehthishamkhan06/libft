@@ -74,6 +74,8 @@ char	**splitter(char const *s, char c, char **str, int *i)
 			count_since_start++;
 		}
 		str[i[0]] = (char *)malloc(sizeof(char) * (word_length + 1));
+		if (!str[i[0]])
+			return (NULL);
 		count_since_start -= word_length;
 		inside_string_count = 0;
 		while (s[count_since_start] != c && s[count_since_start])
@@ -83,6 +85,7 @@ char	**splitter(char const *s, char c, char **str, int *i)
 	str[i[0]] = 0;
 	return (str);
 }
+
 
 char	**ft_split(char const *s, char c)
 {
