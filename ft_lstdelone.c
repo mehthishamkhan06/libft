@@ -17,3 +17,22 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	del(lst->content);
 	free(lst);
 }
+
+// void del(void *content)
+// {
+// 	free(content);
+// }
+// int main()
+// {
+// 	t_list *full;
+// 	char *s;
+// 	s = malloc(sizeof(char) * 8);
+// 	s[0] = 'h';
+// 	s[1] = 'i';
+// 	s[2] = '\0';
+// 	full = (t_list *)malloc(sizeof(t_list));
+// 	full->content = (char *)s;
+// 	printf("%s\n", (char *)full->content);
+// 	ft_lstdelone(full, del);
+// 	printf("%s", (char *)full->content);
+// }
