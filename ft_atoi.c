@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 int	ft_atoi(const char *str)
 {
@@ -35,16 +34,14 @@ int	ft_atoi(const char *str)
 			return (0);
 		if (answer >= LLONG_MAX)
 			return (-1);
-		if (strlen(str) == 10)
-			return(-1);
 		str++;
 	}
 	return (sign * answer);
 }
 
-int main(void)
-{
-	printf("%i\n", atoi("21474836471111111111"));
-	printf("%i\n", ft_atoi("21474836471111111111"));
-	// printf("%i\n", atoi(NULL));
-}
+// int main(void)
+// {
+// 	printf("%i\n", ft_atoi((void *)0));
+// 	printf("%i\n", atoi((void *)0));
+// 	// printf("%i\n", atoi(NULL));
+// }

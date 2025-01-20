@@ -24,3 +24,12 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(res, count * size);
 	return (res);
 }
+
+// int main()
+// {
+// 	void *res;
+
+// 	void *str = malloc(5 * 10);
+// 	str = "HELLO";
+// 	res = ft_calloc(5, 10);
+// }

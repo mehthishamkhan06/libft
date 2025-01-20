@@ -30,21 +30,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	}
 	else
 	{
-		ft_memcpy(dest + d_len, src, size - d_len - 1);
+		ft_memcpy((dest + d_len), src, (size - d_len - 1));
 		dest[size - 1] = '\0';
 	}
 	return (d_len + s_len);
 }
-
-// int main() {
-//     char dest[20] = "Hello";
-//     char src[] = "World";
-//     size_t size = 0;
-
-//     size_t result = ft_strlcat(dest, src, size);
-
-//     printf("Destination: %s\n", dest);       // Output: "Hello"
-//     printf("Total length: %zu\n", result);  // Output: 11
-
-//     return 0;
-// }

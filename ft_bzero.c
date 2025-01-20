@@ -20,3 +20,10 @@ void	ft_bzero(void *s, size_t n)
 	while (i < n)
 		((unsigned char *)s)[i++] = 0;
 }
+
+// int main()
+// {
+// 	char str[20] = "HELLO";
+// 	ft_bzero((void *)str, 5);
+// 	printf("%s", (char *)str);
+// }

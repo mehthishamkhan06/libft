@@ -27,3 +27,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+
+// int main()
+// {
+// 	printf("%s", ft_memchr((void *)"Aello", 'l' , 5));
+// }

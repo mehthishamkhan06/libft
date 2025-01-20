@@ -29,7 +29,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
-
 // int main()
 // {
 // 	t_list *last;
@@ -58,10 +57,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 // 	front->next = NULL;
 // 	printf("%d\n", *(int *)ft_lstlast(last)->content);
 // 	ft_lstadd_back(&last, front);
-// 	int i = 0;
-// 	while (i < 3)
-// 	{
-// 		printf("%d\n", *(int *)ft_lstlast(last)->content);
-// 		i++;
-// 	}
+// 	printf("%d", *(int *)ft_lstlast(last)->content);
 // }

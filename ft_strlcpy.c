@@ -33,27 +33,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	return (counter);
 }
 
-// size_t	ft_strlcpy1(char *dst, const char *src, size_t dstsize)
-// {
-// 	size_t	count;
-
-// 	count = 0;
-// 	if (!(dstsize))
-// 		return (ft_strlen(src));
-// 	while (*src && dstsize - 1)
-// 	{
-// 		*dst = *src;
-// 		count++;
-// 		dst++;
-// 		src++;
-// 		dstsize--;
-// 	}
-// 	*dst = '\0';
-// 	src = src - count;
-// 	dst = dst - count;
-// 	return (ft_strlen(src));
-// }
-
 // int main()
 // {
 // 	char src[20] = "HELLfSOfhO";
